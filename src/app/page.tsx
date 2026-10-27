@@ -18,7 +18,7 @@ import { faqs } from "@/data/faqs";
 export const metadata: Metadata = {
   title: { absolute: "AirFixPro | AC Repair, Servicing & Installation in Karachi" },
   description:
-    "AC repair, FoamJet deep cleaning, installation, gas charging and inverter card repair in Karachi. Clear pricing, 1-month service warranty. Call or WhatsApp 0343-7894566.",
+    "AC repair, FoamJet deep cleaning, installation, gas charging and inverter card repair in Karachi. Clear pricing, 1-month service warranty. Call or WhatsApp 0335-9959099.",
   alternates: { canonical: "/" },
 };
 
