@@ -2,7 +2,7 @@ import { toPkInternational } from "../lib/validation.ts";
 
 export type NavItem = { label: string; href: string };
 
-const phoneLocal = "0343-7894566";
+const phoneLocal = "0335-9959099";
 const phoneDigits = toPkInternational(phoneLocal);
 if (!phoneDigits) throw new Error(`Invalid business phone number: ${phoneLocal}`);
 
