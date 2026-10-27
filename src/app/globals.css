@@ -1,42 +1,168 @@
 @import "tailwindcss";
 
+@theme {
+  --color-navy: #061f40;
+  --color-navy-800: #0b2b55;
+  --color-blue: #0789d1;
+  --color-blue-hover: #0675b5;
+  --color-ice: #eaf7ff;
+  --color-cyan: #ddf3ff;
+  --color-page: #f7fafc;
+  --color-surface: #ffffff;
+  --color-ink: #061f40;
+  --color-muted: #526579;
+  --color-line: #dce8f0;
+  --color-success: #0b7a45;
+  --color-whatsapp: #0b7a45;
+  --color-whatsapp-hover: #096a3c;
+  --color-danger: #b42318;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(6 31 64 / 0.04), 0 8px 24px -12px rgb(6 31 64 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(6 31 64 / 0.04), 0 20px 40px -16px rgb(7 137 209 / 0.28);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-enter: hero-enter 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(22px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+}
+
 :root {
-  /* AirFixPro brand tokens */
-  --navy: #061f40;
-  --blue: #0789d1;
-  --blue-hover: #0675b5;
-  --ice: #eaf7ff;
-  --background: #f7fafc;
-  --surface: #ffffff;
-  --muted: #526579;
-  --border: #dce8f0;
-  --foreground: #061f40;
-  --brand: #0789d1;
-  --brand-hover: #0675b5;
-  --brand-foreground: #ffffff;
-  --navy-foreground: #ffffff;
+  --header-h: 4.5rem;
 }
 
-@theme inline {
-  --color-navy: var(--navy);
-  --color-blue: var(--blue);
-  --color-blue-hover: var(--blue-hover);
-  --color-ice: var(--ice);
-  --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-foreground: var(--foreground);
-  --color-brand: var(--brand);
-  --color-brand-hover: var(--brand-hover);
-  --color-brand-foreground: var(--brand-foreground);
-  --color-navy-foreground: var(--navy-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+  html {
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-page font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-navy;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--color-cyan);
+    color: var(--color-navy);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+@utility text-gradient {
+  background-image: linear-gradient(100deg, var(--color-navy) 0%, var(--color-blue) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(7 137 209 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(7 137 209 / 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Scroll-driven reveal: progressive enhancement, no JavaScript. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 18%;
+    }
+
+    .stagger > .reveal:nth-child(1) {
+      animation-range: entry 0% cover 18%;
+    }
+    .stagger > .reveal:nth-child(2) {
+      animation-range: entry 4% cover 20%;
+    }
+    .stagger > .reveal:nth-child(3) {
+      animation-range: entry 8% cover 22%;
+    }
+    .stagger > .reveal:nth-child(4) {
+      animation-range: entry 12% cover 24%;
+    }
+    .stagger > .reveal:nth-child(5) {
+      animation-range: entry 16% cover 26%;
+    }
+    .stagger > .reveal:nth-child(6) {
+      animation-range: entry 20% cover 28%;
+    }
+    .stagger > .reveal:nth-child(7) {
+      animation-range: entry 24% cover 30%;
+    }
+    .stagger > .reveal:nth-child(8) {
+      animation-range: entry 28% cover 32%;
+    }
+    .stagger > .reveal:nth-child(9) {
+      animation-range: entry 32% cover 34%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

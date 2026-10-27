@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AirFixPro
 
-## Getting Started
+Lead-generation website for **AirFixPro** — AC repair, cleaning, installation, and maintenance in Karachi.
 
-First, run the development server:
+Stack: **Next.js 16** (App Router, Cache Components), **React 19**, **TypeScript**, **Tailwind CSS v4**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Structure
+
+```
+src/
+  app/           # Routes, metadata, API (`/api/inquiries`)
+  components/    # layout, sections, forms, ui, services, pricing
+  config/        # Business details (`site.ts`) — single source of truth
+  data/          # Services, prices, office plans, FAQs, service areas
+  lib/           # Shared helpers (validation, forms, email, WhatsApp)
+tests/           # Node native tests (`node --test`)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Prices, contact details, and form field definitions live once and are reused across pages, email, and WhatsApp messages.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Local development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript (`tsc --noEmit`) |
+| `npm test` | Validation / form helper tests |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Requires **Node.js 20+**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment variables
+
+Copy [`.env.example`](.env.example) to `.env.local`:
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Yes (production) | Canonical URL for sitemap, Open Graph, JSON-LD |
+| `RESEND_API_KEY` | For email delivery | Resend API key |
+| `INQUIRY_FROM_EMAIL` | For email delivery | Verified sender, e.g. `AirFixPro <bookings@yourdomain.com>` |
+| `INQUIRY_TO_EMAIL` | Optional | Inbox for form submissions (defaults to the business email in `src/config/site.ts`) |
+
+Without Resend configured, booking / contact / office forms return an honest “not connected” response and offer a **prefilled WhatsApp** fallback. Nothing is pretended as sent.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push the repo to GitHub (or another Git host).
+2. Import the project in [Vercel](https://vercel.com/new) — Next.js is detected automatically.
+3. Set the environment variables above (at least `NEXT_PUBLIC_SITE_URL` for production).
+4. Deploy.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No special adapter or config file is required for a standard App Router deploy on Vercel.
+
+## Notes
+
+- Do not invent business details (hours, reviews, extra phones, social URLs). Update [`src/config/site.ts`](src/config/site.ts) and [`src/data/`](src/data/) only with verified info.
+- Office plan 50/50 payment splits are calculated in code from [`src/data/office-plans.ts`](src/data/office-plans.ts).
+- The inquiry API rate limit is in-memory per instance (fine for light traffic; use a shared store if abuse appears).
