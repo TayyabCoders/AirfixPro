@@ -1,3 +1,4 @@
+import "server-only";
 import { site } from "@/config/site";
 
 export type DeliveryResult = "sent" | "not_configured" | "failed";

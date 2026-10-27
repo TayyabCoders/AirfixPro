@@ -13,7 +13,7 @@ export function FinalCTA({
   whatsappMessage,
 }: FinalCTAProps) {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-20 sm:py-24">
       <Container>
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-ice via-cyan to-ice px-6 py-14 text-center ring-1 ring-blue/15 sm:px-12 sm:py-16">
           <Snowflake aria-hidden className="absolute -top-10 -left-10 size-48 text-blue/10" />

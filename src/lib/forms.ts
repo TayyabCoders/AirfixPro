@@ -1,7 +1,7 @@
-import { officePlans } from "@/data/office-plans";
-import { services } from "@/data/services";
-import { optionLabel, type FieldDef, type FieldValues } from "@/lib/validation";
-import { whatsappMessages } from "@/lib/whatsapp";
+import { officePlans } from "../data/office-plans.ts";
+import { services } from "../data/services.ts";
+import { optionLabel, type FieldDef, type FieldValues } from "./validation.ts";
+import { whatsappMessages } from "./whatsapp.ts";
 
 export type FormId = "booking" | "office" | "contact";
 

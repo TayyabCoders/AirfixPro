@@ -1,23 +1,22 @@
-import {
-  Building2,
-  CircuitBoard,
-  ClipboardCheck,
-  Droplets,
-  Drill,
-  Fan,
-  Snowflake,
-  SprayCan,
-  Wrench,
-  type LucideIcon,
-} from "lucide-react";
-
 export type ServiceCategoryId = "repair" | "cleaning" | "installation" | "maintenance";
+
+/** Icon keys are mapped to Lucide components in the UI layer. */
+export type ServiceIconId =
+  | "wrench"
+  | "sprayCan"
+  | "clipboardCheck"
+  | "drill"
+  | "snowflake"
+  | "droplets"
+  | "circuitBoard"
+  | "fan"
+  | "building2";
 
 export type Service = {
   slug: string;
   title: string;
   category: ServiceCategoryId;
-  icon: LucideIcon;
+  icon: ServiceIconId;
   image: string;
   imageAlt: string;
   short: string;
@@ -47,7 +46,7 @@ export const services: Service[] = [
     slug: "ac-repair",
     title: "AC Repair",
     category: "repair",
-    icon: Wrench,
+    icon: "wrench",
     ...IMG.technician,
     short: "Diagnosis and repair for ACs that are not cooling, leaking, noisy or not turning on.",
     description:
@@ -71,7 +70,7 @@ export const services: Service[] = [
     slug: "foamjet-deep-cleaning",
     title: "FoamJet Deep Cleaning",
     category: "cleaning",
-    icon: SprayCan,
+    icon: "sprayCan",
     ...IMG.cleaning,
     short: "Foam jet cleaning of the coil and indoor unit to remove built-up dust and dirt.",
     description:
@@ -94,7 +93,7 @@ export const services: Service[] = [
     slug: "ac-master-service",
     title: "AC Master Service",
     category: "cleaning",
-    icon: ClipboardCheck,
+    icon: "clipboardCheck",
     ...IMG.cleaning,
     short: "A complete service visit to clean, check and tune up your split AC.",
     description:
@@ -116,7 +115,7 @@ export const services: Service[] = [
     slug: "ac-installation",
     title: "AC Installation",
     category: "installation",
-    icon: Drill,
+    icon: "drill",
     ...IMG.installation,
     short: "Professional installation of split AC indoor and outdoor units.",
     description:
@@ -134,7 +133,7 @@ export const services: Service[] = [
     slug: "gas-charging",
     title: "Gas Charging",
     category: "installation",
-    icon: Snowflake,
+    icon: "snowflake",
     ...IMG.installation,
     short: "Refrigerant gas charging with leak repair to restore cooling.",
     description:
@@ -147,7 +146,7 @@ export const services: Service[] = [
     slug: "leak-detection-and-repair",
     title: "Leak Detection & Repair",
     category: "installation",
-    icon: Droplets,
+    icon: "droplets",
     ...IMG.installation,
     short: "Finding and repairing refrigerant leaks, followed by gas charging.",
     description:
@@ -160,7 +159,7 @@ export const services: Service[] = [
     slug: "inverter-ac-card-repair",
     title: "Inverter AC PCB / Card Repair",
     category: "repair",
-    icon: CircuitBoard,
+    icon: "circuitBoard",
     ...IMG.technician,
     short: "Diagnosis and repair of inverter AC control boards (PCB / card).",
     description:
@@ -178,7 +177,7 @@ export const services: Service[] = [
     slug: "indoor-outdoor-unit-cleaning",
     title: "Indoor & Outdoor Unit Cleaning",
     category: "cleaning",
-    icon: Fan,
+    icon: "fan",
     ...IMG.cleaning,
     short: "Cleaning of the indoor unit, filters and the outdoor condenser.",
     description:
@@ -191,7 +190,7 @@ export const services: Service[] = [
     slug: "ac-maintenance",
     title: "Residential & Commercial Maintenance",
     category: "maintenance",
-    icon: Building2,
+    icon: "building2",
     ...IMG.office,
     short: "Ongoing AC maintenance for homes, offices and commercial spaces.",
     description:

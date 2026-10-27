@@ -13,18 +13,25 @@ export function OfficePlanCard({ plan, detailed = false }: { plan: OfficePlan; d
         detailed ? "p-7" : "p-5",
       )}
     >
-      <div className="flex items-center gap-3">
-        <span className="grid size-11 place-items-center rounded-xl bg-gradient-to-br from-blue to-navy text-white">
+      <div className="flex items-start gap-3">
+        <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-blue to-navy text-white">
           <Building2 aria-hidden className="size-5" />
         </span>
-        <div>
-          <h3 className="text-lg font-bold">{plan.name}</h3>
+        <div className="min-w-0">
+          <h3 className={cn("font-bold", detailed ? "text-lg" : "text-base md:text-lg")}>{plan.name}</h3>
           <p className="text-sm text-muted">Annual care for up to {plan.units} AC units</p>
         </div>
       </div>
 
-      <p className="mt-6 flex items-baseline gap-1">
-        <span className="font-display text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">{formatPKR(plan.annualPrice)}</span>
+      <p className="mt-6 flex flex-wrap items-baseline gap-1">
+        <span
+          className={cn(
+            "font-display font-extrabold tracking-tight text-navy",
+            detailed ? "text-3xl sm:text-4xl" : "text-2xl md:text-3xl",
+          )}
+        >
+          {formatPKR(plan.annualPrice)}
+        </span>
         <span className="text-sm font-medium text-muted">/year</span>
       </p>
 

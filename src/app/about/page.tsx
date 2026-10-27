@@ -26,13 +26,13 @@ export default function AboutPage() {
     <>
       <PageHero eyebrow="About us" title={site.tagline} description={`${site.name} is a Karachi-based AC service business focused on doing the job properly and being straightforward with customers.`} crumbs={[{ label: "About" }]} />
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-20 sm:py-24">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lift ring-1 ring-line">
             <Image src="/images/deep-cleaning.jpg" alt="Foam jet cleaning of a split AC coil with a protective cover" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-muted">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">AC care for homes and workplaces</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl">AC care for homes and workplaces</h2>
             <p>
               AirFixPro repairs, services, cleans and installs air conditioners for homes and businesses in Karachi. Our work covers
               everything from FoamJet deep cleaning and master servicing to gas charging, leak repair and inverter AC card repair.
@@ -52,16 +52,16 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-page py-16 sm:py-20">
+      <section className="bg-page py-20 sm:py-24">
         <Container>
           <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map(({ icon: Icon, title, text }) => (
-              <li key={title} className="reveal rounded-2xl border border-line bg-white p-6 shadow-soft">
+              <li key={title} className="reveal flex h-full flex-col rounded-2xl border border-line bg-white p-6 shadow-soft">
                 <span className="grid size-12 place-items-center rounded-xl bg-ice text-blue">
                   <Icon aria-hidden className="size-6" />
                 </span>
                 <h3 className="mt-5 text-lg font-bold">{title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-muted">{text}</p>
+                <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted">{text}</p>
               </li>
             ))}
           </ul>

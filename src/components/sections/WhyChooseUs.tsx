@@ -44,20 +44,25 @@ export function WhyChooseUs() {
         </div>
 
         <ul className="grid gap-4 sm:grid-cols-2">
-          {reasons.map(({ icon: Icon, title, text }, i) => (
-            <li
-              key={title}
-              className={`reveal rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-blue/60 hover:bg-white/[0.07] ${
-                i === reasons.length - 1 ? "sm:col-span-2" : ""
-              }`}
-            >
-              <span className="grid size-11 place-items-center rounded-xl bg-blue/15 text-cyan ring-1 ring-blue/30">
-                <Icon aria-hidden className="size-5" />
-              </span>
-              <h3 className="mt-4 text-base font-bold text-white">{title}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-cyan/75">{text}</p>
-            </li>
-          ))}
+          {reasons.map(({ icon: Icon, title, text }, i) => {
+            const isLast = i === reasons.length - 1;
+            return (
+              <li
+                key={title}
+                className={`reveal rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-blue/60 hover:bg-white/[0.07] ${
+                  isLast ? "flex items-start gap-4 sm:col-span-2" : ""
+                }`}
+              >
+                <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-blue/15 text-cyan ring-1 ring-blue/30">
+                  <Icon aria-hidden className="size-5" />
+                </span>
+                <div className={isLast ? "min-w-0" : ""}>
+                  <h3 className={`${isLast ? "mt-0" : "mt-4"} text-base font-bold text-white`}>{title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-cyan/75">{text}</p>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </Container>
     </section>

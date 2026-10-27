@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { serviceIcons } from "@/components/services/serviceIcons";
 import type { ServicePrice } from "@/data/pricing";
 import { getService } from "@/data/services";
 import { formatPKR } from "@/lib/utils";
 
 export function ServicePriceCard({ price }: { price: ServicePrice }) {
   const service = getService(price.serviceSlug);
-  const Icon = service?.icon;
+  const Icon = service ? serviceIcons[service.icon] : null;
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">

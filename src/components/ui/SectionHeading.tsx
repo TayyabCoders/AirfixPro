@@ -5,12 +5,11 @@ export function Eyebrow({ children, dark = false, className }: { children: React
   return (
     <p
       className={cn(
-        "inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-[0.14em] uppercase",
+        "inline-flex items-center rounded-full px-3.5 py-1 text-xs font-semibold tracking-[0.14em] uppercase",
         dark ? "bg-white/10 text-cyan ring-1 ring-white/15" : "bg-ice text-blue ring-1 ring-blue/15",
         className,
       )}
     >
-      <span aria-hidden className={cn("size-1.5 rounded-full", dark ? "bg-cyan" : "bg-blue")} />
       {children}
     </p>
   );

@@ -1,4 +1,4 @@
-import { site } from "@/config/site";
+import { site } from "../config/site.ts";
 
 export const whatsappMessages = {
   general: "Hello AirFixPro, I would like to inquire about your AC services.",

@@ -35,12 +35,12 @@ export default function OfficeCarePage() {
         </ButtonLink>
       </PageHero>
 
-      <section className="bg-page py-16 sm:py-20">
+      <section className="bg-page py-20 sm:py-24">
         <Container>
           <SectionHeading eyebrow="Annual plans" title="Choose the plan that fits your office" />
-          <ul className="mt-12 grid gap-6 md:grid-cols-3">
+          <ul className="mt-12 grid gap-6 lg:grid-cols-3">
             {officePlans.map((plan) => (
-              <li key={plan.id} className="reveal">
+              <li key={plan.id} className="reveal h-full">
                 <OfficePlanCard plan={plan} detailed />
               </li>
             ))}
@@ -51,14 +51,15 @@ export default function OfficeCarePage() {
         </Container>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-20 sm:py-24">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading align="left" eyebrow="Included facilities" title="What the plans cover" />
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {officeInclusions.map((item) => (
-                <li key={item} className="flex items-start gap-3 rounded-xl border border-line bg-page p-4 text-navy">
-                  <CheckCircle2 aria-hidden className="mt-0.5 size-5 shrink-0 text-blue" /> {item}
+                <li key={item} className="flex h-full items-start gap-3 rounded-xl border border-line bg-page p-4 text-navy">
+                  <CheckCircle2 aria-hidden className="mt-0.5 size-5 shrink-0 text-blue" />
+                  <span className="min-w-0">{item}</span>
                 </li>
               ))}
             </ul>
@@ -74,10 +75,10 @@ export default function OfficeCarePage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-navy py-16 text-white sm:py-20">
+      <section className="relative overflow-hidden bg-navy py-20 text-white sm:py-24">
         <div aria-hidden className="absolute -top-32 right-0 size-[30rem] rounded-full bg-blue/20 blur-3xl" />
-        <Container className="relative grid gap-8 lg:grid-cols-2">
-          <div className="min-w-0 rounded-3xl border border-white/10 bg-white/[0.04] p-7 sm:p-9">
+        <Container className="relative grid items-stretch gap-8 lg:grid-cols-2">
+          <div className="flex min-w-0 flex-col rounded-3xl border border-white/10 bg-white/[0.04] p-7 sm:p-9">
             <span className="grid size-12 place-items-center rounded-xl bg-blue/20 text-cyan">
               <FileText aria-hidden className="size-6" />
             </span>
@@ -85,12 +86,13 @@ export default function OfficeCarePage() {
             <ul className="mt-5 space-y-3">
               {contractDocumentation.map((item) => (
                 <li key={item} className="flex gap-3 text-cyan/80">
-                  <CheckCircle2 aria-hidden className="mt-0.5 size-5 shrink-0 text-blue" /> {item}
+                  <CheckCircle2 aria-hidden className="mt-0.5 size-5 shrink-0 text-blue" />
+                  <span className="min-w-0">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="min-w-0 rounded-3xl border border-white/10 bg-white/[0.04] p-7 sm:p-9">
+          <div className="flex min-w-0 flex-col rounded-3xl border border-white/10 bg-white/[0.04] p-7 sm:p-9">
             <span className="grid size-12 place-items-center rounded-xl bg-blue/20 text-cyan">
               <Wallet aria-hidden className="size-6" />
             </span>
@@ -126,12 +128,12 @@ export default function OfficeCarePage() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-xs text-cyan/60">No payment is collected online. Payments are arranged directly with AirFixPro.</p>
+            <p className="mt-auto pt-4 text-xs text-cyan/60">No payment is collected online. Payments are arranged directly with AirFixPro.</p>
           </div>
         </Container>
       </section>
 
-      <section id="office-inquiry" className="scroll-mt-24 bg-ice py-16 sm:py-20">
+      <section id="office-inquiry" className="scroll-mt-24 bg-ice py-20 sm:py-24">
         <Container className="max-w-4xl">
           <SectionHeading
             eyebrow="Get a quotation"

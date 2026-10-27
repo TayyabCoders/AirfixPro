@@ -10,15 +10,15 @@ const items = [
 
 export function TrustStrip() {
   return (
-    <section aria-label="Why customers trust AirFixPro" className="relative z-10 bg-ice pb-6">
+    <section aria-label="Why customers trust AirFixPro" className="relative z-10 bg-ice pt-2 pb-10 sm:pb-12">
       <Container>
         <ul className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line shadow-soft sm:grid-cols-2 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, text }) => (
-            <li key={title} className="flex items-start gap-4 bg-white p-5 sm:p-6">
+            <li key={title} className="flex h-full items-start gap-4 bg-white p-5 sm:p-6">
               <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-ice text-blue">
                 <Icon aria-hidden className="size-5" />
               </span>
-              <div>
+              <div className="min-w-0">
                 <p className="font-display font-bold text-navy">{title}</p>
                 <p className="mt-1 text-sm leading-relaxed text-muted">{text}</p>
               </div>

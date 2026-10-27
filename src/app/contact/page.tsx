@@ -38,9 +38,9 @@ export default function ContactPage() {
         </ButtonLink>
       </PageHero>
 
-      <section className="bg-page py-14 sm:py-20">
-        <Container className="grid gap-8 lg:grid-cols-[22rem_1fr] lg:gap-10">
-          <div className="space-y-4">
+      <section className="bg-page py-20 sm:py-24">
+        <Container className="grid items-start gap-8 lg:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)] lg:gap-10">
+          <aside className="space-y-4">
             <ul className="space-y-4">
               {channels.map(({ icon: Icon, label, value, href }) => {
                 const external = href.startsWith("http");
@@ -56,21 +56,21 @@ export default function ContactPage() {
                       </span>
                       <span className="min-w-0">
                         <span className="block text-sm font-medium text-muted">{label}</span>
-                        <span className="block font-semibold break-words text-navy">{value}</span>
+                        <span className="mt-0.5 block font-semibold break-words text-navy">{value}</span>
                       </span>
                     </a>
                   </li>
                 );
               })}
             </ul>
-            <p className="flex gap-3 rounded-2xl bg-ice p-5 text-sm text-navy">
+            <p className="flex gap-3 rounded-2xl bg-ice p-5 text-sm leading-relaxed text-navy">
               <Clock aria-hidden className="mt-0.5 size-5 shrink-0 text-blue" />
               Please contact us to confirm availability for your preferred day and time.
             </p>
-          </div>
+          </aside>
 
-          <div className="rounded-3xl border border-line bg-white p-6 shadow-soft sm:p-10">
-            <h2 className="text-2xl font-bold">Send us a message</h2>
+          <div className="min-w-0 rounded-3xl border border-line bg-white p-6 shadow-soft sm:p-10">
+            <h2 className="text-2xl font-bold text-navy">Send us a message</h2>
             <p className="mt-2 mb-8 text-muted">For service visits, the booking form collects everything we need in one go.</p>
             <InquiryForm formId="contact" />
           </div>

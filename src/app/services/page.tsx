@@ -30,22 +30,22 @@ export default function ServicesPage() {
         </ButtonLink>
       </PageHero>
 
-      <div className="bg-page py-16 sm:py-20">
-        <Container className="space-y-16">
+      <div className="bg-page py-20 sm:py-24">
+        <Container className="space-y-16 sm:space-y-20">
           {serviceCategories.map((category) => {
             const items = services.filter((s) => s.category === category.id);
             if (!items.length) return null;
             return (
               <section key={category.id} aria-labelledby={`cat-${category.id}`}>
-                <div className="flex flex-col gap-2 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between">
-                  <h2 id={`cat-${category.id}`} className="text-2xl font-bold sm:text-3xl">
+                <div className="flex flex-col gap-2 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+                  <h2 id={`cat-${category.id}`} className="shrink-0 text-2xl font-bold sm:text-3xl">
                     {category.title}
                   </h2>
-                  <p className="text-muted">{category.description}</p>
+                  <p className="max-w-xl text-muted sm:max-w-sm sm:text-right md:max-w-md">{category.description}</p>
                 </div>
                 <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {items.map((service) => (
-                    <li key={service.slug} className="reveal">
+                    <li key={service.slug} className="reveal h-full">
                       <ServiceCard service={service} />
                     </li>
                   ))}

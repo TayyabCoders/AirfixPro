@@ -14,7 +14,7 @@ export function HomeHero() {
       <div aria-hidden className="absolute -top-32 -right-24 size-[36rem] rounded-full bg-cyan blur-3xl" />
       <div aria-hidden className="absolute bottom-0 -left-40 size-[24rem] rounded-full bg-blue/10 blur-3xl" />
 
-      <Container className="relative grid items-center gap-12 pt-10 pb-16 sm:pt-14 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pt-20 lg:pb-24">
+      <Container className="relative grid items-center gap-12 pt-10 pb-20 sm:pt-14 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pt-20 lg:pb-24">
         <div className="animate-fade-up">
           <Eyebrow>Professional AC services in Karachi</Eyebrow>
           <h1 className="mt-6 text-[2.4rem] leading-[1.04] font-extrabold tracking-tight sm:text-6xl lg:text-[4rem]">

@@ -4,6 +4,7 @@ import { ArrowRight, Info } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { serviceIcons } from "@/components/services/serviceIcons";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { officePlans } from "@/data/office-plans";
@@ -36,26 +37,29 @@ export default function PricingPage() {
         </ButtonLink>
       </PageHero>
 
-      <section className="bg-page py-16 sm:py-20">
+      <section className="bg-page py-20 sm:py-24">
         <Container className="max-w-5xl">
           <div className="overflow-hidden rounded-3xl border border-line bg-white shadow-soft">
-            <div className="hidden grid-cols-[1fr_auto] gap-6 border-b border-line bg-ice px-7 py-4 text-xs font-semibold tracking-wider text-muted uppercase md:grid">
+            <div className="hidden grid-cols-[minmax(0,1fr)_auto] gap-6 border-b border-line bg-ice px-5 py-4 text-xs font-semibold tracking-wider text-muted uppercase sm:px-7 md:grid">
               <span>Service</span>
               <span>Price</span>
             </div>
             <ul className="divide-y divide-line">
               {servicePrices.map((price) => {
                 const service = getService(price.serviceSlug);
-                const Icon = service?.icon;
+                const Icon = service ? serviceIcons[service.icon] : null;
                 return (
-                  <li key={price.id} className="flex flex-col gap-4 px-5 py-6 transition-colors hover:bg-page sm:px-7 md:flex-row md:items-center md:justify-between">
-                    <div className="flex items-start gap-4">
+                  <li
+                    key={price.id}
+                    className="flex flex-col gap-3 px-5 py-6 transition-colors hover:bg-page sm:gap-4 sm:px-7 md:flex-row md:items-center md:justify-between md:gap-8"
+                  >
+                    <div className="flex min-w-0 items-start gap-4">
                       {Icon ? (
                         <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-ice text-blue">
                           <Icon aria-hidden className="size-6" />
                         </span>
                       ) : null}
-                      <div>
+                      <div className="min-w-0">
                         <h2 className="font-sans text-lg font-bold">{price.title}</h2>
                         <p className="mt-1 text-sm text-muted">{price.description}</p>
                         {service ? (
@@ -68,11 +72,13 @@ export default function PricingPage() {
                         ) : null}
                       </div>
                     </div>
-                    <div className="pl-16 md:pl-0 md:text-right">
+                    <div className="shrink-0 pl-16 md:pl-0 md:text-right">
                       {price.startingFrom ? (
                         <p className="text-xs font-semibold tracking-wider text-muted uppercase">Starting from</p>
                       ) : null}
-                      <p className="font-display text-2xl font-extrabold whitespace-nowrap text-blue sm:text-3xl">{formatPKR(price.amount)}</p>
+                      <p className="font-display text-2xl font-extrabold whitespace-nowrap text-blue sm:text-3xl">
+                        {formatPKR(price.amount)}
+                      </p>
                     </div>
                   </li>
                 );

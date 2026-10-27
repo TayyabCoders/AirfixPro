@@ -3,9 +3,10 @@ import { ArrowRight } from "lucide-react";
 import type { Service } from "@/data/services";
 import { getPrices } from "@/data/pricing";
 import { formatPKR } from "@/lib/utils";
+import { serviceIcons } from "@/components/services/serviceIcons";
 
 export function ServiceCard({ service }: { service: Service }) {
-  const Icon = service.icon;
+  const Icon = serviceIcons[service.icon];
   const prices = getPrices(service.priceIds);
   const from = prices.length ? Math.min(...prices.map((p) => p.amount)) : null;
 

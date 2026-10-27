@@ -1,4 +1,4 @@
-import { toPkInternational } from "@/lib/validation";
+import { toPkInternational } from "../lib/validation.ts";
 
 export type NavItem = { label: string; href: string };
 

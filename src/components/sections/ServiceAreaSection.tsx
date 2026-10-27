@@ -30,9 +30,8 @@ export function ServiceAreaSection() {
             <div aria-hidden className="bg-grid absolute inset-0 opacity-40" />
             <div aria-hidden className="absolute size-72 rounded-full bg-blue/30 blur-3xl" />
             <div className="relative flex max-w-sm flex-col items-center text-center">
-              <span className="relative grid size-16 place-items-center rounded-full bg-blue text-white shadow-lift">
-                <span aria-hidden className="absolute inset-0 animate-ping rounded-full bg-blue/40 [animation-duration:2.5s]" />
-                <MapPin aria-hidden className="relative size-7" />
+              <span className="grid size-16 place-items-center rounded-full bg-blue text-white shadow-lift">
+                <MapPin aria-hidden className="size-7" />
               </span>
               <p className="mt-5 font-display text-lg font-bold text-white">AirFixPro Office</p>
               <address className="mt-2 text-sm leading-relaxed text-cyan/80 not-italic">{fullAddress}</address>
