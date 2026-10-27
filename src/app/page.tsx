@@ -6,6 +6,7 @@ import { HomeHero } from "@/components/sections/HomeHero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { OfficeCareSection } from "@/components/sections/OfficeCareSection";
 import { PricingSection } from "@/components/sections/PricingSection";
+import { ProblemQuickStart } from "@/components/sections/ProblemQuickStart";
 import { ServiceAreaSection } from "@/components/sections/ServiceAreaSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { TrustStrip } from "@/components/sections/TrustStrip";
@@ -26,6 +27,7 @@ export default function HomePage() {
     <>
       <HomeHero />
       <TrustStrip />
+      <ProblemQuickStart />
       <ServicesSection />
       <WhyChooseUs />
       <HowItWorks />

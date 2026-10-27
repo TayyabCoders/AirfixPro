@@ -54,9 +54,9 @@ export default function AboutPage() {
 
       <section className="bg-page py-20 sm:py-24">
         <Container>
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map(({ icon: Icon, title, text }) => (
-              <li key={title} className="reveal flex h-full flex-col rounded-2xl border border-line bg-white p-6 shadow-soft">
+              <li key={title} className="reveal flex h-full flex-col rounded-2xl border border-line bg-white p-6 shadow-soft transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-blue/30 hover:shadow-lift">
                 <span className="grid size-12 place-items-center rounded-xl bg-ice text-blue">
                   <Icon aria-hidden className="size-6" />
                 </span>

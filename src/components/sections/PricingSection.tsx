@@ -10,8 +10,12 @@ export function PricingSection() {
   return (
     <section className="bg-page py-20 sm:py-24">
       <Container>
-        <SectionHeading eyebrow="Clear rates" title="Service Pricing" description="Know what to expect before the technician arrives." />
-        <ul className="mt-14 grid gap-5 md:grid-cols-3">
+        <SectionHeading
+          eyebrow="Clear rates"
+          title="See the price before you book"
+          description="Published rates in Pakistani rupees. Final scope is confirmed with you before any work begins."
+        />
+        <ul className="stagger mt-14 grid gap-5 md:grid-cols-3">
           {getPrices(featuredPriceIds).map((price) => (
             <li key={price.id} className="reveal">
               <ServicePriceCard price={price} />

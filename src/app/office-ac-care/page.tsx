@@ -38,7 +38,7 @@ export default function OfficeCarePage() {
       <section className="bg-page py-20 sm:py-24">
         <Container>
           <SectionHeading eyebrow="Annual plans" title="Choose the plan that fits your office" />
-          <ul className="mt-12 grid gap-6 lg:grid-cols-3">
+          <ul className="stagger mt-12 grid gap-6 lg:grid-cols-3">
             {officePlans.map((plan) => (
               <li key={plan.id} className="reveal h-full">
                 <OfficePlanCard plan={plan} detailed />

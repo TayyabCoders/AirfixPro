@@ -13,7 +13,7 @@ export function ServicesSection() {
           title="Our AC Services"
           description="Complete AC care for your home and workplace."
         />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="stagger mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <li key={service.slug} className="reveal">
               <ServiceCard service={service} />

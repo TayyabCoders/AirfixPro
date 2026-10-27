@@ -36,9 +36,9 @@ export function OfficeCareSection() {
             title="Office AC Care Plans"
             description="Annual maintenance plans for offices that need their ACs running reliably all year, with every visit documented in writing."
           />
-          <ul className="mt-8 grid gap-3 lg:grid-cols-3">
+          <ul className="stagger mt-8 grid gap-3 lg:grid-cols-3">
             {officePlans.map((plan) => (
-              <li key={plan.id}>
+              <li key={plan.id} className="reveal">
                 <OfficePlanCard plan={plan} />
               </li>
             ))}

@@ -26,9 +26,12 @@ export function FinalCTA({
                 <WhatsAppIcon /> WhatsApp Us
               </ButtonLink>
               <ButtonLink href={site.phone.href} variant="secondary" size="lg">
-                <Phone aria-hidden className="size-5" /> Call Now
+                <Phone aria-hidden className="size-5" /> Call {site.phone.display}
               </ButtonLink>
             </div>
+            <p className="mt-6 text-sm text-muted">
+              Same number for calls and WhatsApp · {site.warranty} · Serving Karachi
+            </p>
           </div>
         </div>
       </Container>

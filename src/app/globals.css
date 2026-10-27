@@ -24,12 +24,24 @@
   --shadow-lift: 0 2px 4px rgb(6 31 64 / 0.04), 0 20px 40px -16px rgb(7 137 209 / 0.28);
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-enter: hero-enter 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-float: float 6s ease-in-out infinite;
 
   @keyframes fade-up {
     from {
       opacity: 0;
       transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(22px) scale(0.985);
     }
     to {
       opacity: 1;
@@ -111,7 +123,35 @@
     .reveal {
       animation: fade-up linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 40%;
+      animation-range: entry 0% cover 18%;
+    }
+
+    .stagger > .reveal:nth-child(1) {
+      animation-range: entry 0% cover 18%;
+    }
+    .stagger > .reveal:nth-child(2) {
+      animation-range: entry 4% cover 20%;
+    }
+    .stagger > .reveal:nth-child(3) {
+      animation-range: entry 8% cover 22%;
+    }
+    .stagger > .reveal:nth-child(4) {
+      animation-range: entry 12% cover 24%;
+    }
+    .stagger > .reveal:nth-child(5) {
+      animation-range: entry 16% cover 26%;
+    }
+    .stagger > .reveal:nth-child(6) {
+      animation-range: entry 20% cover 28%;
+    }
+    .stagger > .reveal:nth-child(7) {
+      animation-range: entry 24% cover 30%;
+    }
+    .stagger > .reveal:nth-child(8) {
+      animation-range: entry 28% cover 32%;
+    }
+    .stagger > .reveal:nth-child(9) {
+      animation-range: entry 32% cover 34%;
     }
   }
 }

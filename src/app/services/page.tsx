@@ -6,6 +6,7 @@ import { ServiceCard } from "@/components/services/ServiceCard";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { serviceCategories, services } from "@/data/services";
+import { cn } from "@/lib/utils";
 import { whatsappMessages, whatsappUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -43,7 +44,14 @@ export default function ServicesPage() {
                   </h2>
                   <p className="max-w-xl text-muted sm:max-w-sm sm:text-right md:max-w-md">{category.description}</p>
                 </div>
-                <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <ul
+                  className={cn(
+                    "stagger mt-8 grid gap-5",
+                    items.length === 1 && "max-w-md sm:grid-cols-1",
+                    items.length === 2 && "sm:grid-cols-2 lg:max-w-4xl",
+                    items.length >= 3 && "sm:grid-cols-2 lg:grid-cols-3",
+                  )}
+                >
                   {items.map((service) => (
                     <li key={service.slug} className="reveal h-full">
                       <ServiceCard service={service} />

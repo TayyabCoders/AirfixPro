@@ -9,7 +9,7 @@ export function OfficePlanCard({ plan, detailed = false }: { plan: OfficePlan; d
   return (
     <article
       className={cn(
-        "flex h-full flex-col rounded-2xl border border-line bg-white shadow-soft transition-all duration-300 hover:border-blue/40 hover:shadow-lift",
+        "flex h-full flex-col rounded-2xl border border-line bg-white shadow-soft transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-blue/40 hover:shadow-lift",
         detailed ? "p-7" : "p-5",
       )}
     >

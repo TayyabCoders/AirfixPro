@@ -15,9 +15,9 @@ export function HowItWorks() {
         <SectionHeading eyebrow="Simple process" title="How It Works" description="Three easy steps from first message to a cooler room." />
         <div className="relative mt-14">
           <div aria-hidden className="absolute top-[4.25rem] right-[16%] left-[16%] hidden h-px bg-gradient-to-r from-transparent via-blue/40 to-transparent md:block" />
-          <ol className="relative grid gap-6 md:grid-cols-3">
+          <ol className="stagger relative grid gap-6 md:grid-cols-3">
           {steps.map(({ icon: Icon, title, text }, i) => (
-            <li key={title} className="reveal relative flex flex-col items-center rounded-2xl border border-line bg-page p-7 text-center">
+            <li key={title} className="reveal relative flex flex-col items-center rounded-2xl border border-line bg-page p-7 text-center transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-blue/30 hover:shadow-soft">
               <span className="relative grid size-20 place-items-center rounded-full bg-white shadow-soft ring-1 ring-line">
                 <Icon aria-hidden className="size-8 text-blue" />
                 <span className="absolute -top-1 -right-1 grid size-7 place-items-center rounded-full bg-navy text-xs font-bold text-white">

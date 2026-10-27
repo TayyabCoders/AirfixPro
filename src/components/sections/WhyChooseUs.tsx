@@ -43,13 +43,13 @@ export function WhyChooseUs() {
           </div>
         </div>
 
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <ul className="stagger grid gap-4 sm:grid-cols-2">
           {reasons.map(({ icon: Icon, title, text }, i) => {
             const isLast = i === reasons.length - 1;
             return (
               <li
                 key={title}
-                className={`reveal rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-blue/60 hover:bg-white/[0.07] ${
+                className={`reveal rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors duration-200 hover:border-blue/60 hover:bg-white/[0.07] ${
                   isLast ? "flex items-start gap-4 sm:col-span-2" : ""
                 }`}
               >
